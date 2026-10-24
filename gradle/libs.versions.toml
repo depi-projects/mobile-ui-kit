@@ -1,0 +1,35 @@
+[versions]
+kotlin = "2.4.10"
+agp = "8.7.3"
+compose-bom = "2024.12.01"
+activity-compose = "1.9.3"
+navigation-compose = "2.8.5"
+showkase = "1.0.3"
+ksp = "2.4.0-1.0.27"
+coil = "2.7.0"
+vico = "3.3.1"
+lottie = "6.6.7"
+
+[libraries]
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+compose-ui = { module = "androidx.compose.ui:ui" }
+compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling" }
+compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
+compose-material-icons = { module = "androidx.compose.material:material-icons-extended" }
+activity-compose = { module = "androidx.activity:activity-compose", version.ref = "activity-compose" }
+navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
+compose-foundation = { module = "androidx.compose.foundation:foundation" }
+showkase = { module = "com.airbnb.android:showkase", version.ref = "showkase" }
+showkase-processor = { module = "com.airbnb.android:showkase-processor", version.ref = "showkase" }
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+vico-compose = { group = "com.patrykandpatrick.vico", name = "compose", version.ref = "vico" }
+vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version.ref = "vico" }
+lottie-compose = { group = "com.airbnb.android", name = "lottie-compose", version.ref = "lottie" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
