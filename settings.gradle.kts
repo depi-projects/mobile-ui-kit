@@ -28,3 +28,4 @@ rootProject.name = "mobile-ui-kit"
 
 include(":ui-kit-android")
 include(":catalog-android")
+// ui-kit-ios — Swift Package (Package.swift), not a Gradle module
