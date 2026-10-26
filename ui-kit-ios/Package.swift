@@ -7,7 +7,19 @@ let package = Package(
     products: [
         .library(name: "MobileUIKit", targets: ["MobileUIKit"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/onevcat/Kingfisher.git", from: "8.1.0"),
+    ],
     targets: [
-        .target(name: "MobileUIKit", path: "Sources/MobileUIKit"),
+        .target(
+            name: "MobileUIKit",
+            dependencies: [
+                .product(name: "Kingfisher", package: "Kingfisher"),
+            ],
+            path: "Sources/MobileUIKit",
+            resources: [
+                .process("Fonts"),
+            ]
+        ),
     ]
 )

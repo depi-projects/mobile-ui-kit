@@ -13,14 +13,15 @@ import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.unit.Density
 
 private val Ink = Color(0xFF16181D)
-private val PrimaryButton = Color(0xFF1C1C1E)
+/** Material-style primary blue (CTA, links). */
+private val PrimaryBlue = Color(0xFF1A73E8)
 private val MutedInk = Color(0xFF6B7280)
 
 private val LightScheme = lightColorScheme(
-    primary = PrimaryButton,
+    primary = PrimaryBlue,
     onPrimary = Color.White,
-    primaryContainer = Color(0xFFF0F0F2),
-    onPrimaryContainer = Ink,
+    primaryContainer = Color(0xFFE8F0FE),
+    onPrimaryContainer = Color(0xFF174EA6),
     secondary = Color(0xFFE68600),
     onSecondary = Color.White,
     secondaryContainer = Color(0xFFFFF1DE),
@@ -42,7 +43,7 @@ private val LightScheme = lightColorScheme(
     onErrorContainer = Color(0xFF8C1024),
     inverseSurface = Color(0xFF1E2024),
     inverseOnSurface = Color(0xFFF5F5F7),
-    inversePrimary = Color(0xFFE68600),
+    inversePrimary = Color(0xFF4285F4),
     surfaceContainerLowest = Color.White,
     surfaceContainerLow = Color(0xFFF7F7F8),
     surfaceContainer = Color(0xFFF3F3F5),
@@ -52,10 +53,10 @@ private val LightScheme = lightColorScheme(
 
 /** Dark gray canvas (not near-black) + slightly lifted cards. */
 private val DarkScheme = darkColorScheme(
-    primary = Color(0xFFF5F5F7),
-    onPrimary = Color(0xFF1E2024),
-    primaryContainer = Color(0xFF32353C),
-    onPrimaryContainer = Color(0xFFF5F5F7),
+    primary = Color(0xFFAECBFA),
+    onPrimary = Color(0xFF062E6F),
+    primaryContainer = Color(0xFF004A77),
+    onPrimaryContainer = Color(0xFFD3E3FD),
     secondary = Color(0xFFE68600),
     onSecondary = Color.White,
     secondaryContainer = Color(0xFF3D2800),
@@ -77,7 +78,7 @@ private val DarkScheme = darkColorScheme(
     onErrorContainer = Color(0xFFFFD5DA),
     inverseSurface = Color(0xFFF5F5F7),
     inverseOnSurface = Color(0xFF1E2024),
-    inversePrimary = Color(0xFFE68600),
+    inversePrimary = Color(0xFF1A73E8),
     surfaceContainerLowest = Color(0xFF1E2024),
     surfaceContainerLow = Color(0xFF272A30),
     surfaceContainer = Color(0xFF272A30),
