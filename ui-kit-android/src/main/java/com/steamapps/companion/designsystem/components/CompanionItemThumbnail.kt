@@ -1,11 +1,8 @@
 package com.steamapps.companion.designsystem.components
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -21,11 +18,10 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.steamapps.companion.designsystem.theme.resolveItemRarityColor
 
-private val RarityBottomBorderHeight = 2.5.dp
 private const val ItemArtScale = 1.22f
 
 /**
- * Item art on a transparent background with a soft rarity glow from the bottom and a rarity bottom edge.
+ * Item art on a transparent background with a soft rarity glow from the bottom.
  * Weapon art may draw outside this box (no clip on the image).
  */
 @Composable
@@ -83,14 +79,6 @@ fun CompanionItemThumbnail(
                     scaleY = ItemArtScale
                     clip = false
                 },
-        )
-        Box(
-            Modifier
-                .align(Alignment.BottomCenter)
-                .fillMaxWidth()
-                .height(RarityBottomBorderHeight)
-                .clip(shape)
-                .background(rarityColor),
         )
     }
 }

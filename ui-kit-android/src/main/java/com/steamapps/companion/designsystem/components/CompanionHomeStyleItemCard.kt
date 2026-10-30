@@ -34,6 +34,7 @@ fun CompanionHomeStyleItemCard(
     modifier: Modifier = Modifier,
     priceUsd: Double? = null,
     priceDisplay: String? = null,
+    priceLoading: Boolean = false,
     priceColor: Color = Palette.Gold,
     subtitle: @Composable (() -> Unit)? = null,
     beforePrice: @Composable (() -> Unit)? = null,
@@ -94,6 +95,7 @@ fun CompanionHomeStyleItemCard(
                 fallback = priceDisplay,
                 compact = true,
                 valueColor = priceColor,
+                loading = priceLoading,
             )
         }
         CompanionItemThumbnail(

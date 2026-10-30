@@ -109,12 +109,14 @@ fun EmptyState(
     iconTint: androidx.compose.ui.graphics.Color = Palette.Coral,
     contentDescription: String? = null,
     action: @Composable (() -> Unit)? = null,
+    centerOnScreen: Boolean = false,
 ) {
     Column(
         modifier
-            .fillMaxWidth()
+            .then(if (centerOnScreen) Modifier.fillMaxSize() else Modifier.fillMaxWidth())
             .padding(horizontal = 24.dp, vertical = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = if (centerOnScreen) Arrangement.Center else Arrangement.Top,
     ) {
         Box(
             Modifier
