@@ -3,12 +3,14 @@ package com.steamapps.companion.designsystem.components
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
@@ -21,7 +23,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 data class NavTab(
     val route: String,
@@ -54,7 +59,7 @@ fun NavigationBar(
         Surface(
             Modifier
                 .weight(1f)
-                .height(52.dp),
+                .height(64.dp),
             shape = RoundedCornerShape(31.dp),
             color = MaterialTheme.colorScheme.surface,
             shadowElevation = com.steamapps.companion.designsystem.theme.Elevation.xl,
@@ -92,15 +97,33 @@ fun NavigationBar(
                                     .background(selectedTint.copy(alpha = 0.14f)),
                             )
                         }
-                        Icon(
-                            tab.icon,
-                            contentDescription = tab.label,
-                            modifier = Modifier.size(if (selected) 28.dp else 24.dp),
-                            tint = when {
-                                selected -> selectedTint
-                                else -> muted.copy(alpha = 0.45f)
-                            },
-                        )
+                        Column(
+                            horizontalAlignment = Alignment.CenterHorizontally,
+                            modifier = Modifier.widthIn(max = 96.dp),
+                        ) {
+                            Icon(
+                                tab.icon,
+                                contentDescription = null,
+                                modifier = Modifier.size(if (selected) 24.dp else 22.dp),
+                                tint = when {
+                                    selected -> selectedTint
+                                    else -> muted.copy(alpha = 0.72f)
+                                },
+                            )
+                            Text(
+                                tab.label,
+                                style = MaterialTheme.typography.labelSmall,
+                                fontSize = 10.sp,
+                                fontWeight = if (selected) FontWeight.Bold else FontWeight.Medium,
+                                maxLines = 1,
+                                overflow = TextOverflow.Ellipsis,
+                                color = when {
+                                    selected -> selectedTint
+                                    else -> muted.copy(alpha = 0.78f)
+                                },
+                                modifier = Modifier.padding(top = 2.dp),
+                            )
+                        }
                     }
                 }
             }

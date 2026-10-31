@@ -49,7 +49,7 @@ public struct KitNavigationBar: View {
             }
             .padding(.horizontal, KitSpace.xs)
             .padding(.vertical, 6)
-            .frame(height: 52)
+            .frame(height: 64)
             .frame(maxWidth: .infinity)
             .background(scheme.surface)
             .clipShape(Capsule())
@@ -83,18 +83,26 @@ public struct KitNavigationBar: View {
         return SwiftUI.Button {
             onTabSelected(tab.route)
         } label: {
-            Image(systemName: tab.systemImage)
-                .font(.system(size: selected ? 22 : 20, weight: .regular))
-                .foregroundStyle(selected ? scheme.primary : scheme.onSurfaceVariant.opacity(0.45))
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-                .background {
-                    if selected {
-                        Capsule()
-                            .fill(scheme.primary.opacity(center ? 0.22 : 0.14))
-                            .padding(.horizontal, center ? 4 : 6)
-                            .padding(.vertical, 2)
-                    }
+            VStack(spacing: 2) {
+                Image(systemName: tab.systemImage)
+                    .font(.system(size: selected ? 20 : 18, weight: .semibold))
+                    .foregroundStyle(selected ? scheme.primary : scheme.onSurfaceVariant.opacity(0.72))
+                Text(tab.label)
+                    .font(KitFont.labelSmall)
+                    .fontWeight(selected ? .bold : .medium)
+                    .foregroundStyle(selected ? scheme.primary : scheme.onSurfaceVariant.opacity(0.78))
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.75)
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .background {
+                if selected {
+                    Capsule()
+                        .fill(scheme.primary.opacity(center ? 0.22 : 0.14))
+                        .padding(.horizontal, center ? 4 : 6)
+                        .padding(.vertical, 2)
                 }
+            }
         }
         .buttonStyle(.plain)
         .accessibilityLabel(tab.label)
